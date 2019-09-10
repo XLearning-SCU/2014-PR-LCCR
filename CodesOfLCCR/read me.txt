@@ -1,0 +1,44 @@
+% Version 1.000 
+%
+% Matlab Code is used for helping in reviewing of our work submitted to PR, titled: ""
+% after our work was accepted, we will provide a higher version on our website:
+% www.machineilab.org.
+
+% by PENG Xi, E-mail: pangsaai@gmail.com; ZHANG Yi, E-mail: zhangyi@scu.edu.cn, etc.
+% Mar. 3. 2012.
+% if you have any problem to use this code, please contact us.
+
+tip1: if you want to test the performance of LCCR on normal databases, or AR images with real possible disguise (scarves or sunglasses) for holistic feature space, just run LCCR_CleanImages.m
+tip2: if you want to test the performance of LCCR on corrupted images, occluded images, partial features, or partitioned feature case for the images with real possible disguise, please generate corresponding data firstly using our provided m.file.
+
+%% ================= the description for mat.file
+AR_database_normal_image_60_43.mat: the images without occlusion;
+cropped_AR_full.mat: includes all AR images
+Yale_54_48: the images without occlusion;
+LFW11_FFT: FFT features extracted from LFW, this is provided by Meng Yang[1], if you use this data set, please cite/ack their work;
+LFW11_Gabor: Gabor feature;
+LFW11_Gray: intensity value, 
+LFW11_LBP: Local Binary Pattern feature.
+[1]  M. Yang, L. Zhang, D. Zhang, S. Wang, Relaxed collaborative representation for pattern classification, in: Proc. of
+IEEE Conference on Computer Vision and Pattern Recognition, 2012, pp. 2224¨C2231.
+
+%% =================  the description for m.file
+% ********** for generating corresponding data under database directory
+AddGaussianNoise.m: for generating the images with white gassian noises
+Random_Pixel_Crop.m: for generating the images with random pixel corruption
+GenPartialFeatures_Cropped: for generating partial feature
+BlockPartitionForDisguise: for generating partitioned feature on the AR images with real disguises.
+% ********** for test various abilities of LCCR
+LCCR_NormalImage.m: Run on normal images
+LCCR_LFW.m: Run on LFW database
+LCCR_AR_Corruption.m: Run on images with noise
+LCCR_AR_Disguise_BlockPartition.m: Run on images with real possible disguise in view of partitioned feature space
+LCCR_AR_Disguise_nonBlockPartition.m: Run on images with real possible disguise in view of holistic feature case
+LCCR_AR_Occlusion.m: Run on images with random block occlusion
+LCCR_AR_PartialFea.m: Run on partial features
+
+Eigenface_f.m: for extracting Eigenface feature
+IDcheck_norm.m: for getting classification result by finding which class have the regularized minimal residual
+analysisRes.m: for analyzing maximal recognition rate
+
+
